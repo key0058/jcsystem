@@ -25,6 +25,7 @@ const router = new Router({
   ]
 })
 
+//监听所有链接
 router.beforeEach((to, from, next) => {
   if (!store.state.isAuthority) {
     store.commit('authorityAccess', true);

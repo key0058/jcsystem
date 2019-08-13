@@ -33,8 +33,7 @@
                                 </Form>
                             </div>
                         </Card>
-                    </Col>
-                    
+                    </Col>    
                 </Row>
             </Card>
         </Content>
@@ -77,7 +76,9 @@ export default {
             this.$refs[name].validate((valid) => {
                 if (valid) {
                     this.$Message.success('Success!');
-                    router.replace("/About")
+                    this.$axios.post('/Account/Login', this.formData).then((res) => {
+                        console.log(res);
+                    })
                 } else {
                     this.$Message.error('Fail!');
                 }
